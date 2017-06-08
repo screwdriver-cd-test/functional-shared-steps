@@ -3,4 +3,4 @@ jobs:
         image: golang:latest
         steps:
             - print: echo this is shared-steps test main job
-            - sd_step: /opt/sd/sd-step exec core/node node -v
+            - sd_step: /opt/sd/sd-step exec core/node "node -v"
