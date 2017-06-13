@@ -3,7 +3,7 @@ jobs:
         image: golang:latest
         steps:
             - print: echo this is shared-steps test main job
-            - sd_step: /opt/sd/sd-step exec core/node "node -v"
-            - sd_step_childa: /opt/sd/sd-step exec --pkg-version "~6.9.0" core/node "node -v"
-            - sd_step_hat: /opt/sd/sd-step exec --pkg-version "^6.0.0" core/node "node -v"
-            - sd_step_specify: /opt/sd/sd-step exec --pkg-version "4.2.6" core/node "node -v"
+            - sd_step: sd-step exec core/node "node -v"
+            - sd_step_tilda: sd-step exec --pkg-version "~6.9.0" core/node "node -v"
+            - sd_step_hat: sd-step exec --pkg-version "^6.0.0" core/node "node -v"
+            - sd_step_specify: sd-step exec --pkg-version "4.2.6" core/node "node -v"
