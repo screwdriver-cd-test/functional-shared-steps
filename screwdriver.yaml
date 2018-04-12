@@ -7,3 +7,6 @@ jobs:
             - sd_step_tilde: sd-step exec --pkg-version "~6.11.0" core/node "node -v"
             - sd_step_hat: sd-step exec --pkg-version "^6.0.0" core/node "node -v"
             - sd_step_specify: sd-step exec --pkg-version "4.2.6" core/node "node -v"
+        requires:
+            - ~pr
+            - ~commit
