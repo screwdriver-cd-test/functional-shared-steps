@@ -5,9 +5,9 @@ jobs:
             - print: echo this is shared-steps test main job
             - sd_step: sd-step exec core/node "node -v"
             # Below step is taking 20+ minutes casuing the test monitoring this build to timeout and fail. Skipping it for now to unblock the pipeline.
-            # - sd_step_tilde: sd-step exec --pkg-version "~v22.17.0" core/node "node -v"
-            - sd_step_hat: sd-step exec --pkg-version "^v22.17.0" core/node "node -v"
-            - sd_step_specify: sd-step exec --pkg-version "v22.17.0" core/node "node -v"
+            # - sd_step_tilde: sd-step exec --pkg-version "~v14.18.1" core/node "node -v"
+            - sd_step_hat: sd-step exec --pkg-version "^v14.18.1" core/node "node -v"
+            - sd_step_specify: sd-step exec --pkg-version "14.18.1" core/node "node -v"
         requires:
             - ~pr
             - ~commit
