@@ -1,0 +1,21 @@
+shared:
+    environment:
+        NODE_PACKAGE_VERSION_EXPRESSION: ""
+    image: golang:latest
+    steps:
+        -   print: echo this is shared-steps test test-habitat-pkg-download-tilde job
+        -   sd_step: sd-step exec core/node "node -v"
+        -   sd_step_tilde: sd-step exec --pkg-version "NODE_PACKAGE_VERSION_EXPRESSION" core/node "node -v"
+    requires:
+        - ~pr
+        - ~commit
+jobs:
+    test-habitat-pkg-download-tilde:
+        environment:
+            NODE_PACKAGE_VERSION_EXPRESSION: "~14.18.1"
+    test-habitat-pkg-download-hat:
+        environment:
+            NODE_PACKAGE_VERSION_EXPRESSION: "^14.18.1"
+    test-habitat-pkg-download-specific:
+        environment:
+            NODE_PACKAGE_VERSION_EXPRESSION: "14.18.1"
