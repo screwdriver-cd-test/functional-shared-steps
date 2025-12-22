@@ -10,6 +10,15 @@ shared:
         - ~pr
         - ~commit
 jobs:
+    main:
+        steps:
+            - print: echo this is shared-steps test main job
+            - sd_step: sd-step exec core/node "node -v"
+            # Skipping below tests because they are longer than expected leading to test timeout
+            # Need to revisit to fix the underlying issue
+            # - sd_step_tilde: sd-step exec --pkg-version "~14.18.1" core/node "node -v"
+            # - sd_step_hat: sd-step exec --pkg-version "^14.18.1" core/node "node -v"
+            - sd_step_specify: sd-step exec --pkg-version "14.18.1" core/node "node -v"
     test-habitat-pkg-download-tilde:
         environment:
             NODE_PACKAGE_VERSION_EXPRESSION: "~14.18.1"
